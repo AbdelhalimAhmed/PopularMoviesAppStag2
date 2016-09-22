@@ -1,6 +1,5 @@
 package com.example.abdelhalim.popularmoviesapp;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -93,13 +92,13 @@ public class MainActivity extends AppCompatActivity implements DetailsFragment.O
         switch (item.getItemId()) {
             case R.id.Favorite:
                 Toast.makeText(getApplicationContext(),"Favourite Movies",Toast.LENGTH_LONG).show();
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_activity, new FavoriteFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_activity, new FavoriteFragment()).addToBackStack("FavouriteMovies").commit();
 
                 return true;
             case R.id.action_refresh:
-                Toast.makeText(getApplicationContext(),"Item 1 Selected",Toast.LENGTH_LONG).show();
-                Intent i = new Intent(this,MainActivity.class);
-                startActivity(i);
+                Toast.makeText(getApplicationContext(),"Refresh",Toast.LENGTH_LONG).show();
+                //getSupportFragmentManager().beginTransaction().replace(R.id.main_activity,new MainActivity()).commit();
+
                 //progressBar.setVisibility(View.VISIBLE);
                 return true;
             default:

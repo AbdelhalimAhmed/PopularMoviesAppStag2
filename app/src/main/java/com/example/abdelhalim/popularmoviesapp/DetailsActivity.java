@@ -56,6 +56,7 @@ public class DetailsActivity extends ActionBarActivity {
 
 
                 }
+
             }
 
             @Override

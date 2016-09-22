@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,9 +33,27 @@ public class FavoriteFragment extends Fragment {
     ArrayList<Double> vote = new ArrayList<>();
     ArrayList<String> overview = new ArrayList<>();
     ArrayList<Integer> ids = new ArrayList<>();
+
     View view;
+
+    @Override
+    public void onStop() {
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+
+            posters.clear();
+            title.clear();
+            date.clear();
+            vote.clear();
+            overview.clear();
+            ids.clear();
+
+        super.onStop();
+    }
+
+
     @Override
     public void onStart() {
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
         RealmResults<Database> favourite = realm.where(Database.class).findAll();
         for(Database result : favourite){
             posters.add(result.poster);
