@@ -1,0 +1,12 @@
+Two Stages:
+
+Stage 1:  Main Discovery Screen, A Details View, and Settings.
+
+	First: GridView to display moves poster
+	Second: Setting sort order by most popular or top rated
+	Third: Allow the user to tap on movie poster and transiation to details activity with information:
+ 		- original title
+   		- movie poster image thumbnail
+    		- A plot synopsis (called overview in the api)
+    		- user rating (called vote_average in the api)
+    		- release date
