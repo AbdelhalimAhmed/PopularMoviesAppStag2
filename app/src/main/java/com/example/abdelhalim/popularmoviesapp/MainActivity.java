@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements DetailsFragment.O
                 Toast.makeText(getApplicationContext(),"Refresh",Toast.LENGTH_LONG).show();
                 //getSupportFragmentManager().beginTransaction().replace(R.id.main_activity,new MainActivity()).commit();
 
-                //progressBar.setVisibility(View.VISIBLE);
+                //progressBar.setVisibility(View.VISIBLE);ss
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
