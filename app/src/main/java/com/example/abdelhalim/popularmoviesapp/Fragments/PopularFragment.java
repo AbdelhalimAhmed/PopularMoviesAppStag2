@@ -1,5 +1,6 @@
 package com.example.abdelhalim.popularmoviesapp.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -12,6 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.abdelhalim.popularmoviesapp.API.ApiMovie;
+import com.example.abdelhalim.popularmoviesapp.Activites.DetailsActivity;
+import com.example.abdelhalim.popularmoviesapp.Activites.MainActivity;
 import com.example.abdelhalim.popularmoviesapp.Adapter.ImageAdapter;
 import com.example.abdelhalim.popularmoviesapp.R;
 import com.google.gson.Gson;
@@ -33,6 +36,7 @@ public class PopularFragment extends Fragment {
     ArrayList<Double> vote = new ArrayList<>();
     ArrayList<String> overview = new ArrayList<>();
     ArrayList<Integer> ids = new ArrayList<>();
+
     View v;
 
     @Override
@@ -74,6 +78,7 @@ public class PopularFragment extends Fragment {
                                 Toast.LENGTH_SHORT).show();
 
                         DetailsFragment detailsFragment = new DetailsFragment();
+                        if(MainActivity.mTwoPane) {
                         Bundle bundle = new Bundle();
 
                         bundle.putString("poster", "https://image.tmdb.org/t/p/w185" + posters.get(position));
@@ -86,15 +91,18 @@ public class PopularFragment extends Fragment {
                         detailsFragment.setArguments(bundle);
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_activity,detailsFragment)
                                 .addToBackStack("DetailsMovies").commit();
-                        //Intent intent = new Intent(getActivity(),DetailsActivity.class);
-                        //intent.putExtra("poster", "https://image.tmdb.org/t/p/w185" + posters.get(position));
-                        //intent.putExtra("title",title.get(position));
-                        //intent.putExtra("date",date.get(position));
-                        //intent.putExtra("Vote", vote.get(position));
-                        //intent.putExtra("overview",overview.get(position));
-                        //intent.putExtra("id",ids.get(position));
+                        }else {
 
-                        //startActivity(intent);
+                        Intent intent = new Intent(getActivity(),DetailsActivity.class);
+                        intent.putExtra("poster", "https://image.tmdb.org/t/p/w185" + posters.get(position));
+                        intent.putExtra("title",title.get(position));
+                        intent.putExtra("date",date.get(position));
+                        intent.putExtra("Vote", vote.get(position));
+                        intent.putExtra("overview",overview.get(position));
+                        intent.putExtra("id",ids.get(position));
+
+                        startActivity(intent);
+                        }
 
 
 

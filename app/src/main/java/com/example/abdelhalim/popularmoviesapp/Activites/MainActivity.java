@@ -9,14 +9,16 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.example.abdelhalim.popularmoviesapp.Adapter.TabsAdapter;
 import com.example.abdelhalim.popularmoviesapp.Fragments.DetailsFragment;
 import com.example.abdelhalim.popularmoviesapp.Fragments.FavoriteFragment;
 import com.example.abdelhalim.popularmoviesapp.Fragments.PopularFragment;
-import com.example.abdelhalim.popularmoviesapp.R;
-import com.example.abdelhalim.popularmoviesapp.Adapter.TabsAdapter;
 import com.example.abdelhalim.popularmoviesapp.Fragments.TopRateFragment;
+import com.example.abdelhalim.popularmoviesapp.R;
+import com.example.abdelhalim.popularmoviesapp.UiListener;
 import com.facebook.stetho.Stetho;
 import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
@@ -24,8 +26,10 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
 
-public class MainActivity extends AppCompatActivity implements DetailsFragment.OnFragmentInteractionListener, FavoriteFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements DetailsFragment.OnFragmentInteractionListener, FavoriteFragment.OnFragmentInteractionListener, UiListener {
 
+    public static boolean mTwoPane;
+    public static final String DETAIL_FRAGMENT_TAG = "DFTAG";
     @Override
     protected void onStart() {
         RealmConfiguration realmConfig = new RealmConfiguration.Builder(this).build();
@@ -46,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements DetailsFragment.O
 
         Fragment f1 = new PopularFragment();
         Fragment f2 = new TopRateFragment();
+        Fragment f3 = new DetailsFragment();
         Fragment[] fragments = {f1, f2};
 
         TabsAdapter tabsAdapterUser = new TabsAdapter(getSupportFragmentManager(), fragments);
@@ -84,7 +89,22 @@ public class MainActivity extends AppCompatActivity implements DetailsFragment.O
         });
 
 
+        FrameLayout flPanel2 = (FrameLayout) findViewById(R.id.flPanel_two);
+        if(null == flPanel2){
+            mTwoPane=true;
+            getSupportActionBar().setElevation(0f);
+        }else {
+            mTwoPane = false;
+            if(savedInstanceState == null){
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.flPanel_two, new DetailsFragment(), DETAIL_FRAGMENT_TAG)
+                        .commit();}
+        }
+
+
+
     }
+
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -115,6 +135,11 @@ public class MainActivity extends AppCompatActivity implements DetailsFragment.O
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void setSelectedName(String name) {
 
     }
 }
