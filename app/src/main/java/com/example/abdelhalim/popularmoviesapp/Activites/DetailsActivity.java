@@ -1,4 +1,4 @@
-package com.example.abdelhalim.popularmoviesapp;
+package com.example.abdelhalim.popularmoviesapp.Activites;
 
 
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.abdelhalim.popularmoviesapp.API.TrailersAPI;
+import com.example.abdelhalim.popularmoviesapp.R;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;

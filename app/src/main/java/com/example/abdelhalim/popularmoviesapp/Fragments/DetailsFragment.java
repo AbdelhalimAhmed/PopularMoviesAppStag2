@@ -1,4 +1,4 @@
-package com.example.abdelhalim.popularmoviesapp;
+package com.example.abdelhalim.popularmoviesapp.Fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +16,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.abdelhalim.popularmoviesapp.API.ReviewsAPI;
+import com.example.abdelhalim.popularmoviesapp.API.TrailersAPI;
+import com.example.abdelhalim.popularmoviesapp.DataBase.Database;
+import com.example.abdelhalim.popularmoviesapp.R;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;

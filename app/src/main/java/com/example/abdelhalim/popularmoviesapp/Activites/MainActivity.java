@@ -1,4 +1,4 @@
-package com.example.abdelhalim.popularmoviesapp;
+package com.example.abdelhalim.popularmoviesapp.Activites;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +11,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.abdelhalim.popularmoviesapp.Fragments.DetailsFragment;
+import com.example.abdelhalim.popularmoviesapp.Fragments.FavoriteFragment;
+import com.example.abdelhalim.popularmoviesapp.Fragments.PopularFragment;
+import com.example.abdelhalim.popularmoviesapp.R;
+import com.example.abdelhalim.popularmoviesapp.Adapter.TabsAdapter;
+import com.example.abdelhalim.popularmoviesapp.Fragments.TopRateFragment;
 import com.facebook.stetho.Stetho;
 import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
@@ -18,7 +24,7 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
 
-public class MainActivity extends AppCompatActivity implements DetailsFragment.OnFragmentInteractionListener, FavoriteFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements DetailsFragment.OnFragmentInteractionListener, FavoriteFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onStart() {
@@ -97,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements DetailsFragment.O
                 return true;
             case R.id.action_refresh:
                 Toast.makeText(getApplicationContext(),"Refresh",Toast.LENGTH_LONG).show();
-                //getSupportFragmentManager().beginTransaction().replace(R.id.main_activity,new MainActivity()).commit();
+                //getSupportFragmentManager().beginTransaction().replace(R.id.main_activity,this).commit();
 
                 //progressBar.setVisibility(View.VISIBLE);ss
                 return true;

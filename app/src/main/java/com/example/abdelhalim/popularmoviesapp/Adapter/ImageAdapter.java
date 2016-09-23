@@ -1,4 +1,4 @@
-package com.example.abdelhalim.popularmoviesapp;
+package com.example.abdelhalim.popularmoviesapp.Adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import com.example.abdelhalim.popularmoviesapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

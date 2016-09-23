@@ -1,4 +1,4 @@
-package com.example.abdelhalim.popularmoviesapp;
+package com.example.abdelhalim.popularmoviesapp.DataBase;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;

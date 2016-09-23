@@ -1,4 +1,4 @@
-package com.example.abdelhalim.popularmoviesapp;
+package com.example.abdelhalim.popularmoviesapp.Fragments;
 
 import android.content.Context;
 import android.net.Uri;
@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+
+import com.example.abdelhalim.popularmoviesapp.DataBase.Database;
+import com.example.abdelhalim.popularmoviesapp.Adapter.ImageAdapter;
+import com.example.abdelhalim.popularmoviesapp.R;
 
 import java.util.ArrayList;
 
