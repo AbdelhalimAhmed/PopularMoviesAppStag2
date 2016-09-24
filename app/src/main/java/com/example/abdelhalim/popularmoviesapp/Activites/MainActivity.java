@@ -18,7 +18,6 @@ import com.example.abdelhalim.popularmoviesapp.Fragments.FavoriteFragment;
 import com.example.abdelhalim.popularmoviesapp.Fragments.PopularFragment;
 import com.example.abdelhalim.popularmoviesapp.Fragments.TopRateFragment;
 import com.example.abdelhalim.popularmoviesapp.R;
-import com.example.abdelhalim.popularmoviesapp.UiListener;
 import com.facebook.stetho.Stetho;
 import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
@@ -26,7 +25,7 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
 
-public class MainActivity extends AppCompatActivity implements DetailsFragment.OnFragmentInteractionListener, FavoriteFragment.OnFragmentInteractionListener, UiListener {
+public class MainActivity extends AppCompatActivity implements DetailsFragment.OnFragmentInteractionListener, FavoriteFragment.OnFragmentInteractionListener {
 
     public static boolean mTwoPane;
     public static final String DETAIL_FRAGMENT_TAG = "DFTAG";
@@ -138,8 +137,5 @@ public class MainActivity extends AppCompatActivity implements DetailsFragment.O
 
     }
 
-    @Override
-    public void setSelectedName(String name) {
 
-    }
 }
